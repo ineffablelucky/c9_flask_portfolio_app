@@ -74,39 +74,33 @@ def pig_latin_post():
         	 for j in vowels:
         		if i == j:
             		consonants.remove(i)
-	      while True:
-    		 while True:
+	      
 
-              		word=request.form['text']
-              		if word.isalpha():
-                 		wordlistvowels = list(word)
-                 		wordlist=list(word)
-            			if wordlistvowels[0] in vowels:
-                			choose=random.choice(vowelchoose)
-                			print(word+choose)
-					answer=word+choose
-					return render_template('piglatin.html', result=answer)
-            			else:
-                			for m in wordlistvowels:
-                    				if m in vowels:
-                        				break
-                    				elif m in consonants:
-                        				newword.append(m)
-                        				wordlist.remove(m)
-                        				continue
-                    				else:
-                        				pass
-                			wordlist.extend(newword)
-                			new = "".join(wordlist)
-                			print(new+"ay")
-					answer=new+"ay"
-					return render_template('piglatin.html', result=answer)
-            			break
-        		else:
-            			print("enter the one word correctly:")
-            			continue
-    
-	
+              word=request.form['text']
+              if word.isalpha():
+                 	wordlistvowels = list(word)
+                 	wordlist=list(word)
+            		if wordlistvowels[0] in vowels:
+                		choose=random.choice(vowelchoose)
+                		print(word+choose)
+				finalword=word+choose
+				return render_template('piglatin.html', result=str(finalword))
+            		else:
+               			for m in wordlistvowels:
+                  			if m in vowels:
+                        			break
+                    			elif m in consonants:
+                        			newword.append(m)
+                        			wordlist.remove(m)
+                       				continue
+                    			else:
+                       				pass
+               			wordlist.extend(newword)
+               			new = "".join(wordlist)
+               			print(new+"ay")
+				finalword=new+"ay"
+				return render_template('piglatin.html', result=str(finalword))
+            	
 		      
 @app.route('/time', methods=['GET','POST'])
 def time_post():
