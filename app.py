@@ -3,6 +3,8 @@ import datetime
 import pytz # timezone 
 import requests
 import os
+import random
+from string import ascii_lowercase
 
 
 
@@ -57,7 +59,55 @@ def shopping_list_post():
           except ValueError:
             return "Easy now! Let's keep it simple! Just words with a space between them"
           
-  	      
+@app.route('/pig', methods=['GET','POST'])
+def pig_latin_post():
+          if request.method == 'GET':
+              return render_template('pig.html')
+          elif request.method == 'POST':
+              allletters=list(ascii_lowercase)
+	      consonants=allletters
+	      vowels=['a','e','i','o',"u"]
+	      vowelchoose=["way" , "yay","ay"]
+ 	      newword=[]
+  	      wordlist=[]
+	      for i in consonants:
+        	 for j in vowels:
+        		if i == j:
+            		consonants.remove(i)
+	      while True:
+    		 while True:
+
+              		word=request.form['text']
+              		if word.isalpha():
+                 		wordlistvowels = list(word)
+                 		wordlist=list(word)
+            			if wordlistvowels[0] in vowels:
+                			choose=random.choice(vowelchoose)
+                			print(word+choose)
+					answer=word+choose
+					return render_template('piglatin.html', result=answer)
+            			else:
+                			for m in wordlistvowels:
+                    				if m in vowels:
+                        				break
+                    				elif m in consonants:
+                        				newword.append(m)
+                        				wordlist.remove(m)
+                        				continue
+                    				else:
+                        				pass
+                			wordlist.extend(newword)
+                			new = "".join(wordlist)
+                			print(new+"ay")
+					answer=new+"ay"
+					return render_template('piglatin.html', result=answer)
+            			break
+        		else:
+            			print("enter the one word correctly:")
+            			continue
+    
+	
+		      
 @app.route('/time', methods=['GET','POST'])
 def time_post():
     # --> ['5', '6', '8']
