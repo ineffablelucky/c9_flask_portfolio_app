@@ -85,7 +85,7 @@ def pig_latin_post():
 				     print(word + choose)
 				     finalword = word + choose
 				     print(finalword)
-				     return render_template('piglatin.html', result=(finalword))
+				     return render_template('piglatin.html', result=finalword)
 			      else:
 				     for m in wordlistvowels:
 					    if m in vowels:
@@ -102,7 +102,7 @@ def pig_latin_post():
 				     finalword = new + "ay"
 				     print(finalword)
 
-				     return render_template('piglatin.html', result=(finalword))
+				     return render_template('piglatin.html', result=finalword)
 
 @app.route('/time', methods=['GET','POST'])
 def time_post():
