@@ -62,7 +62,7 @@ def shopping_list_post():
 @app.route('/pig', methods=['GET','POST'])
 def pig_latin_post():
           if request.method == 'GET':
-              return render_template('pig.html')
+              return render_template('piglatin.html')
           elif request.method == 'POST':
               allletters=list(ascii_lowercase)
 	      consonants=allletters
