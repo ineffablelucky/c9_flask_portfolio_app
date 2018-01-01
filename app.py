@@ -59,7 +59,7 @@ def shopping_list_post():
           except ValueError:
             return "Easy now! Let's keep it simple! Just words with a space between them"
           
-@app.route('/pig', methods=['GET','POST'])
+@app.route('/piglatin', methods=['GET','POST'])
 def pig_latin_post():
           if request.method == 'GET':
                 return render_template('piglatin.html')
