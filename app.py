@@ -58,7 +58,8 @@ def shopping_list_post():
             return render_template('shopping_list.html', result="\n".join([str(item) for item in shop_list]))
           except ValueError:
             return "Easy now! Let's keep it simple! Just words with a space between them"
-         
+
+'''
 @app.route('/piglatin', methods=['GET','POST'])
 def pig_latin_post():
           if request.method == 'GET':
@@ -103,6 +104,21 @@ def pig_latin_post():
 				     print(finalword)
 
 				     return render_template('piglatin.html', result=str(finalword))
+'''
+@app.route('/piglatin', methods=['GET','POST'])
+def converter_post():
+          if request.method == 'GET':
+              return render_template('piglatin.html')
+          elif request.method == 'POST':
+              meters = 0.0
+              try:
+                value = float(request.form['text'])                                     
+                meters = (0.3048 * value * 10000.0 + 0.5) / 10000.0
+                return render_template('piglatin.html', result=str('{:0.4f}'.format(meters)))
+              except ValueError:
+                print("Please enter numbers only")
+		
+		
 
 @app.route('/time', methods=['GET','POST'])
 def time_post():
