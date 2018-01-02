@@ -77,35 +77,38 @@ def pig_latin_post():
 				     consonants.remove(i)
 
 		item = request.form['text'].split()
-		for word in item:
-		       if word.isalpha():
-			      wordlistvowels = list(word)
-			      wordlist = list(word)
-			      if wordlistvowels[0] in vowels:
-				     choose = random.choice(vowelchoose)
-				     print(word + choose)
-				     finalword = word + choose
-				     print(finalword)
-				     return render_template('piglatin.html', result=str(finalword))
-			      else:
-				     for m in wordlistvowels:
-					    if m in vowels:
-						   break
-					    elif m in consonants:
-						   newword.append(m)
-						   wordlist.remove(m)
-						   continue
-					    else:
-						   pass
-				     wordlist.extend(newword)
-				     new = "".join(wordlist)
-				     print(new + "ay")
-				     finalword = new + "ay"
-				     print(finalword)
+		try:
+			for word in item:
+		       		if word.isalpha():
+			      		wordlistvowels = list(word)
+			      		wordlist = list(word)
+			      		if wordlistvowels[0] in vowels:
+				     		choose = random.choice(vowelchoose)
+				     		print(word + choose)
+				     		finalword = word + choose
+				     		print(finalword)
+				     		return render_template('piglatin.html', result=str(finalword))
+			      		else:
+				     		for m in wordlistvowels:
+					    		if m in vowels:
+						   		break
+					    		elif m in consonants:
+						   		newword.append(m)
+						   		wordlist.remove(m)
+						   		continue
+					    		else:
+						   		pass
+				     		wordlist.extend(newword)
+				     		new = "".join(wordlist)
+				     		print(new + "ay")
+				     		finalword = new + "ay"
+				     		print(finalword)
 
-				     return render_template('piglatin.html', result=str(finalword))
-			else:
-				pass
+				     		return render_template('piglatin.html', result=str(finalword))
+				else:
+					pass
+		except:
+			return "EAsy  NOw"
 '''
 @app.route('/piglatin', methods=['GET','POST'])
 def converter_post():
