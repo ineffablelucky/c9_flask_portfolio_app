@@ -104,6 +104,8 @@ def pig_latin_post():
 				     print(finalword)
 
 				     return render_template('piglatin.html', result=str(finalword))
+			else:
+				pass
 '''
 @app.route('/piglatin', methods=['GET','POST'])
 def converter_post():
