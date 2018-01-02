@@ -75,9 +75,9 @@ def pig_latin_post():
 		       for j in vowels:
 			      if i == j:
 				     consonants.remove(i)
-
+'''
 		item = request.form['text'].split()
-		try:
+'''		try:
 			for word in item:
 		       		if word.isalpha():
 			      		wordlistvowels = list(word)
