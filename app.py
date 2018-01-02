@@ -59,7 +59,7 @@ def shopping_list_post():
           except ValueError:
             return "Easy now! Let's keep it simple! Just words with a space between them"
 
-'''
+
 @app.route('/piglatin', methods=['GET','POST'])
 def pig_latin_post():
           if request.method == 'GET':
@@ -70,7 +70,7 @@ def pig_latin_post():
 		vowels = ['a', 'e', 'i', 'o', "u"]
 		vowelchoose = ["way", "yay", "ay"]
 		newword = []
-		wordlist = []
+		
 		for i in consonants:
 		       for j in vowels:
 			      if i == j:
@@ -118,7 +118,7 @@ def converter_post():
               except ValueError:
                 print("Please enter numbers only")
 		
-		
+'''		
 
 @app.route('/time', methods=['GET','POST'])
 def time_post():
