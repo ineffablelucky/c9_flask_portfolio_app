@@ -139,7 +139,7 @@ def python_apps_page():
 	return render_template('python_apps.html')
 
 @app.route('/extra')
-def python_apps_page():
+def extra_page():
 	# testing stuff
 	return render_template('extra.html')
 
