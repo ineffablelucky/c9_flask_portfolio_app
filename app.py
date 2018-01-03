@@ -80,7 +80,7 @@ def pig_latin_post():
             item = request.form['text'].split()
            
             for word in item:
-		word.lower()
+		
                 if word.isalpha():
                     wordlistvowels = list(word)
                     wordlist = list(word)
