@@ -81,6 +81,7 @@ def pig_latin_post():
            
             for word in item:
                 if word.isalpha():
+		    word.lower()
                     wordlistvowels = list(word)
                     wordlist = list(word)
                     if wordlistvowels[0] in vowels:
